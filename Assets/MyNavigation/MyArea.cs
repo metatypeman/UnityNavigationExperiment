@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.MyNavigation
 {
-    public interface IAbstractArea
+    public class MyArea: MyBaseElementaryArea
     {
     }
 }

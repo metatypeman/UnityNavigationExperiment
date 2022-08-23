@@ -441,9 +441,10 @@ GameObject:
   - component: {fileID: 769666619}
   - component: {fileID: 769666618}
   - component: {fileID: 769666617}
+  - component: {fileID: 769666621}
   m_Layer: 0
   m_Name: Plane2
-  m_TagString: Untagged
+  m_TagString: MyNavigation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -527,6 +528,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &769666621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769666616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaec5e0b977029b45b3e942075858b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,9 +676,10 @@ GameObject:
   - component: {fileID: 1274740612}
   - component: {fileID: 1274740611}
   - component: {fileID: 1274740610}
+  - component: {fileID: 1274740614}
   m_Layer: 0
   m_Name: Way1
-  m_TagString: Untagged
+  m_TagString: MyNavigation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -749,6 +763,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 63.013, z: 0}
+--- !u!114 &1274740614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274740609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc97f3a02792d6489d0243bbd9c2fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1610570077
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,9 +787,10 @@ GameObject:
   - component: {fileID: 1610570080}
   - component: {fileID: 1610570079}
   - component: {fileID: 1610570078}
+  - component: {fileID: 1610570082}
   m_Layer: 0
   m_Name: Plane1
-  m_TagString: Untagged
+  m_TagString: MyNavigation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -847,3 +874,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1610570082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610570077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaec5e0b977029b45b3e942075858b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

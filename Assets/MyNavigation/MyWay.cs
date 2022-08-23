@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.MyNavigation
 {
-    public class AbstractArea
+    public class MyWay : MyBaseElementaryArea
     {
     }
 }

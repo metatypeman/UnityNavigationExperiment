@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using Assets.MyNavigation;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.ParticleSystem;
 
 namespace Assets.Editors
 {
@@ -21,12 +24,38 @@ namespace Assets.Editors
             {
                 Debug.Log("Hi!");
 
-                var triangulation = NavMesh.CalculateTriangulation();
+                var myNavigationObjs = FindObjectsOfType<MyAbstractArea>();
 
-                foreach(var verticle in triangulation.vertices)
+                Debug.Log($"myNavigationObjs.Length = {myNavigationObjs.Length}");
+
+                foreach (var element in myNavigationObjs)
                 {
-                    Debug.Log($"verticle = {verticle}");
+                    Debug.Log($"element.name = {element.name}");
                 }
+
+                var firstElem = myNavigationObjs.First();
+
+                var lastElem = myNavigationObjs.Last();
+
+                var path = new NavMeshPath();
+
+                var pathRez = NavMesh.CalculatePath(firstElem.transform.position, lastElem.transform.position, NavMesh.AllAreas, path);
+
+                Debug.Log($"pathRez = {pathRez}");
+
+                for (int i = 0; i < path.corners.Length - 1; i++)
+                {
+                    //Gizmos.DrawLine(path.corners[i], path.corners[i + 1], Color.red);
+                    Debug.Log($"path.corners[{i}] = {path.corners[i]}");
+                }
+
+
+                //var triangulation = NavMesh.CalculateTriangulation();
+
+                //foreach(var verticle in triangulation.vertices)
+                //{
+                //    Debug.Log($"verticle = {verticle}");
+                //}
 
                 Debug.Log("End!");
             }

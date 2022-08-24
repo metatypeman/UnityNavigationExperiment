@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Assets.MyNavigation
 {
-    public class MyArea: MyBaseElementaryArea
+    public class MyArea: MyBaseElementaryArea, IMyArea
     {
+        public override bool IsMyArea => true;
+        public override IMyArea AsMyArea => this;
     }
 }

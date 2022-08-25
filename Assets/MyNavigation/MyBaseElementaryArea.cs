@@ -20,10 +20,10 @@ namespace Assets.MyNavigation
                 _collider = GetComponent<Collider>();
             }
 
-            NLogFactory.GetLogger().Info($"_point = {point}");
-            NLogFactory.GetLogger().Info($"_collider.bounds.Contains(point) = {_collider.bounds.Contains(point)}");
-            NLogFactory.GetLogger().Info($"_collider.ClosestPoint(point) = {_collider.ClosestPoint(point)}");
-            NLogFactory.GetLogger().Info($"_collider.ClosestPointOnBounds(point) = {_collider.ClosestPointOnBounds(point)}");
+            //NLogFactory.GetLogger().Info($"_point = {point}");
+            //NLogFactory.GetLogger().Info($"_collider.bounds.Contains(point) = {_collider.bounds.Contains(point)}");
+            //NLogFactory.GetLogger().Info($"_collider.ClosestPoint(point) = {_collider.ClosestPoint(point)}");
+            //NLogFactory.GetLogger().Info($"_collider.ClosestPointOnBounds(point) = {_collider.ClosestPointOnBounds(point)}");
 
             return _collider.bounds.Contains(point);
             //return (_collider.ClosestPoint(point) - point).sqrMagnitude < Mathf.Epsilon * Mathf.Epsilon;

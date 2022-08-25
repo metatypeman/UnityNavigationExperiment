@@ -39,17 +39,17 @@ namespace Assets.Editors
 
             logger.Info($"allMyNavigationObjList.Length = {allMyNavigationObjList.Length}");
 
-            var allMySignificantNavigationObjList = allMyNavigationObjList.Where(p => p.IsMyWay || p.IsMyArea || p.IsMyLinkingWayPoint).ToList();
+            var allMySignificantNavigationObjList = allMyNavigationObjList.Where(p => p.IsMyWay || p.IsMyArea || p.IsMyLinkingWayPoint).ToArray();
 
-            logger.Info($"allMySignificantNavigationObjList.Count = {allMySignificantNavigationObjList.Count}");
+            logger.Info($"allMySignificantNavigationObjList.Length = {allMySignificantNavigationObjList.Length}");
 
             foreach (var element in allMySignificantNavigationObjList)
             {
                 logger.Info($"element.name = {element.name}");
 
-                var anotherMySignificantNavigationObjList = allMySignificantNavigationObjList.Where(p => p != element).ToList();
+                var anotherMySignificantNavigationObjList = allMySignificantNavigationObjList.Where(p => p != element).ToArray();
 
-                logger.Info($"anotherMySignificantNavigationObjList.Count = {anotherMySignificantNavigationObjList.Count}");
+                logger.Info($"anotherMySignificantNavigationObjList.Length = {anotherMySignificantNavigationObjList.Length}");
 
                 foreach(var anotherElement in anotherMySignificantNavigationObjList)
                 {
@@ -64,9 +64,28 @@ namespace Assets.Editors
 
                     logger.Info($"pathRez = {pathRez}");
 
-                    foreach(var corner in path.corners)
+                    if(!pathRez)
+                    {
+                        continue;
+                    }
+
+                    var intermediateMySignificantNavigationObjList = anotherMySignificantNavigationObjList.Where(p => p != element && p != anotherElement).ToArray();
+
+                    logger.Info($"intermediateMySignificantNavigationObjList.Length = {intermediateMySignificantNavigationObjList.Length}");
+
+                    foreach (var corner in path.corners.Select(p => new Vector3(p.x, p.y - 0.08f, p.z)))
                     {
                         logger.Info($"corner = {corner}");
+
+                        logger.Info($"element.ContainsPoint(corner) = {element.ContainsPoint(corner)}");
+                        logger.Info($"anotherElement.ContainsPoint(corner) = {anotherElement.ContainsPoint(corner)}");
+
+                        foreach (var intermediateElement in intermediateMySignificantNavigationObjList)
+                        {
+                            logger.Info($"intermediateElement.name = {intermediateElement.name}");
+
+                            logger.Info($"intermediateElement.ContainsPoint(corner) = {intermediateElement.ContainsPoint(corner)}");
+                        }
                     }
                 }
             }

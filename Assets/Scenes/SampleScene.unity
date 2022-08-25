@@ -553,7 +553,6 @@ GameObject:
   - component: {fileID: 730638898}
   - component: {fileID: 730638897}
   - component: {fileID: 730638901}
-  - component: {fileID: 730638902}
   m_Layer: 0
   m_Name: Way2c
   m_TagString: Untagged
@@ -641,18 +640,6 @@ Transform:
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &730638901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730638896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbc97f3a02792d6489d0243bbd9c2fbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &730638902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1022,6 +1009,7 @@ GameObject:
   - component: {fileID: 1323754276}
   - component: {fileID: 1323754275}
   - component: {fileID: 1323754274}
+  - component: {fileID: 1323754278}
   m_Layer: 0
   m_Name: Way2a
   m_TagString: Untagged
@@ -1108,6 +1096,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 41.698, z: 0}
+--- !u!114 &1323754278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323754273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc97f3a02792d6489d0243bbd9c2fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1610570077
 GameObject:
   m_ObjectHideFlags: 0

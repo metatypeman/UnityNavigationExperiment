@@ -20,6 +20,7 @@ namespace Assets.MyNavigation
         }
 
         public abstract Vector3 CentralPoint { get; }
+        public abstract bool ContainsPoint(Vector3 point);
 
         public virtual bool IsMyArea => false;
         public virtual IMyArea AsMyArea => null;

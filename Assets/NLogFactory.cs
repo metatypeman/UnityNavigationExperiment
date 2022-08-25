@@ -21,7 +21,9 @@ namespace Assets
             {
                 if(_logger == null)
                 {
-                    var logFile = Path.Combine(@"c:\Users\Acer\", $"MyLog.log");
+                    var now = DateTime.Now;
+
+                    var logFile = Path.Combine(@"c:\Users\Acer\", $"MyLog_{now.Year:00}_{now.Month:00}_{now.Day:00}.log");
 
                     var config = new NLog.Config.LoggingConfiguration();
 

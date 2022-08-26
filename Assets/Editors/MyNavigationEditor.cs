@@ -73,19 +73,33 @@ namespace Assets.Editors
 
                     logger.Info($"intermediateMySignificantNavigationObjList.Length = {intermediateMySignificantNavigationObjList.Length}");
 
-                    foreach (var corner in path.corners.Select(p => new Vector3(p.x, p.y - 0.08f, p.z)))
+                    foreach (var corner in path.corners.Select(p => new Vector3(p.x, p.y, p.z)))
                     {
                         logger.Info($"corner = {corner}");
 
-                        logger.Info($"element.ContainsPoint(corner) = {element.ContainsPoint(corner)}");
-                        logger.Info($"anotherElement.ContainsPoint(corner) = {anotherElement.ContainsPoint(corner)}");
+                        var ray = new Ray(corner, Vector3.down);
+                        
+                        var hits = Physics.RaycastAll(ray);
 
-                        foreach (var intermediateElement in intermediateMySignificantNavigationObjList)
+                        logger.Info($"hits.Length = {hits.Length}");
+
+                        foreach(var hit in hits)
                         {
-                            logger.Info($"intermediateElement.name = {intermediateElement.name}");
-
-                            logger.Info($"intermediateElement.ContainsPoint(corner) = {intermediateElement.ContainsPoint(corner)}");
+                            logger.Info($"hit.point = {hit.point}");
+                            logger.Info($"hit.distance = {hit.distance}");
+                            logger.Info($"hit.transform.gameObject.name = {hit.transform.gameObject.name}");
+                            logger.Info($"hit.transform.gameObject.GetInstanceID() = {hit.transform.gameObject.GetInstanceID()}");
                         }
+
+                        //logger.Info($"element.ContainsPoint(corner) = {element.ContainsPoint(corner)}");
+                        //logger.Info($"anotherElement.ContainsPoint(corner) = {anotherElement.ContainsPoint(corner)}");
+
+                        //foreach (var intermediateElement in intermediateMySignificantNavigationObjList)
+                        //{
+                        //    logger.Info($"intermediateElement.name = {intermediateElement.name}");
+
+                        //    logger.Info($"intermediateElement.ContainsPoint(corner) = {intermediateElement.ContainsPoint(corner)}");
+                        //}
                     }
                 }
             }

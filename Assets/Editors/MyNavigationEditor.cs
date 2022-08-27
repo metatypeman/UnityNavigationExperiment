@@ -51,6 +51,12 @@ namespace Assets.Editors
 
             _logger.Info($"allMySignificantNavigationObjList.Length = {allMySignificantNavigationObjList.Length}");
 
+            var processedElementsLists = new List<(MyAbstractArea, MyAbstractArea)>();
+
+            var linksList = new List<MyLink>();
+
+            var processedLinks = new List<(MyAbstractArea, MyAbstractArea)>();
+
             foreach (var element in allMySignificantNavigationObjList)
             {
                 _logger.Info($"element.name = {element.name}");
@@ -64,6 +70,16 @@ namespace Assets.Editors
                 {
                     _logger.Info($"anotherElement.name = {anotherElement.name}");
                     _logger.Info($"anotherElement.InstanceId = {anotherElement.InstanceId}");
+
+                    if (processedElementsLists.Contains((element, anotherElement)))
+                    {
+                        _logger.Info($"processedElementsLists.Contains((element, anotherElement)");
+
+                        continue;
+                    }
+
+                    processedElementsLists.Add((element, anotherElement));
+                    processedElementsLists.Add((anotherElement, element));
 
                     var path = new NavMeshPath();
 
@@ -79,9 +95,9 @@ namespace Assets.Editors
                         continue;
                     }
 
-                    var lastInstanceId = element.InstanceId;
+                    var lastElement = element;
 
-                    var lastPoint = element.CentralPoint;
+                    var lastPoint = element.CentralPoint;                    
 
                     foreach (var corner in path.corners)
                     {
@@ -101,7 +117,7 @@ namespace Assets.Editors
                         {
                             _logger.Info($"point = {point}");
 
-                            var foundElementsList = ContainsPoint(point, lastInstanceId, allMyNavigationObjDict);
+                            var foundElementsList = ContainsPoint(point, lastElement.InstanceId, allMyNavigationObjDict);
 
                             _logger.Info($"foundElementsList.Count = {foundElementsList.Count}");
 
@@ -114,7 +130,23 @@ namespace Assets.Editors
                                     _logger.Info($"foundElement.name = {foundElement.name}");
                                     _logger.Info($"foundElement.InstanceId = {foundElement.InstanceId}");
 
-                                    lastInstanceId = foundElement.InstanceId;
+                                    if(!processedLinks.Contains((lastElement, foundElement)))
+                                    {
+                                        processedLinks.Add((lastElement, foundElement));
+                                        processedLinks.Add((foundElement, lastElement));
+
+                                        var link = new MyLink()
+                                        {
+                                            A = lastElement,
+                                            B = foundElement
+                                        };
+
+                                        _logger.Info($"link = {link}");
+
+                                        linksList.Add(link);
+                                    }
+
+                                    lastElement = foundElement;
                                 }
                                 else
                                 {
@@ -130,6 +162,13 @@ namespace Assets.Editors
                         }
                     }
                 }
+            }
+
+            _logger.Info($"linksList.Count = {linksList.Count}");
+
+            foreach(var link in linksList)
+            {
+                _logger.Info($"link = {link}");
             }
 
             _logger.Info("End!");

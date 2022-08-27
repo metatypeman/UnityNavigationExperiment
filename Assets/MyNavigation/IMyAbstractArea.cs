@@ -10,7 +10,7 @@ namespace Assets.MyNavigation
     public interface IMyAbstractArea
     {
         Vector3 CentralPoint { get; }
-        bool ContainsPoint(Vector3 point);
+        int InstanceId { get; }
 
         bool IsMyArea { get; }
         IMyArea AsMyArea { get; }
